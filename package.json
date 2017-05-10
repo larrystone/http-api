@@ -1,0 +1,29 @@
+{
+  "name": "http-api-app",
+  "version": "1.0.0",
+  "description": "A simple command line app that uses HTTP client to consume an API",
+  "main": "../app/main.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larrystone/http-api-app.git"
+  },
+  "keywords": [
+    "HTTP",
+    "Command",
+    "line",
+    "App",
+    "API"
+  ],
+  "author": "Lawal Lanre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larrystone/http-api-app/issues"
+  },
+  "homepage": "https://github.com/larrystone/http-api-app#readme",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
