@@ -36,7 +36,7 @@ let fetch = (city)  => {
                 console.log("   Summary : " + parsed.weather[0].description);
                 
                 //show temperature, pressure and humidity
-                console.log("\n   Temperature : "+ parsed.main.temp+"F");
+                console.log("\n   Temperature : "+ parsed.main.temp+"°F");
                 console.log("\n   Pressure : "+ parsed.main.pressure);
                 console.log("\n   Humidity : "+ parsed.main.humidity);
                 console.log('\n**************************************');
