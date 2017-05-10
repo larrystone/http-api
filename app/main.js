@@ -13,7 +13,8 @@ let cb = (err) => {
  *
  */
 let fetch = (category)  => {
-    http.get( 'http://www.ffefefe.com/?rererere', function(res) {
+    http.get( 'http://api.openweathermap.org/data/2.5/weather?q={Lagos}', 
+        function(res) {
         // explicitly treat incoming data as utf8 (avoids issues with multi-byte chars)
         res.setEncoding('utf8');
 
@@ -27,12 +28,13 @@ let fetch = (category)  => {
         res.on('end', function() {
             try {
                 let parsed = JSON.parse(body);
-                //TODO 
+                //TODO interpret and show data
+                console.log(parsed);
 
             } catch (err) {
                 console.error('Unable to parse response as JSON', err);
                 return cb(err);
-            });
+            };
         });
     }).on('error', function(err) {
         // handle errors with the request itself
