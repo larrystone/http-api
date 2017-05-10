@@ -2,11 +2,7 @@
 'use strict';
 
 const program = require('commander'),
-    pkg = require('../package.json'), http = require('http');;
-
-let cb = (err) => {
-    return err.toString();
-}
+    pkg = require('../package.json'), http = require('http');
 
 /**
  * API function def definition
@@ -42,14 +38,12 @@ let fetch = (city)  => {
                 console.log('\n**************************************');
 
             } catch (err) {
-                console.error('Unable to parse response as JSON', err);
-                return cb(err);
+                console.error('Unable to parse response as JSON', err.message);
             };
         });
     }).on('error', function(err) {
         // handle errors with the request itself
         console.error('Error with the request:', err.message);
-        cb(err);
     });
     
 };
