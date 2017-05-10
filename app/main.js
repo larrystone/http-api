@@ -58,8 +58,7 @@ let fetch = (city)  => {
 program
     .version(pkg.version)
     .command('fetch <city>')
-    .description(pkg.description)
-    .option('-c, --city <optional>', 'Enter city')
+    .description('\n' + pkg.description + '\nE.g fetch lagos')
     .option('-h, --help','Get usage help')
     .action(fetch);
 
