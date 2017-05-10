@@ -28,8 +28,18 @@ let fetch = (city)  => {
         res.on('end', function() {
             try {
                 let parsed = JSON.parse(body);
-                //TODO interpret and show data
-                console.log(parsed.name + " : "+ parsed.weather[0].description);
+
+                console.log('\n*************************************\n');
+                console.log("\t"+parsed.name + ", "+ parsed.sys.country); 
+                console.log('-------------------------------------');
+
+                console.log("   Summary : " + parsed.weather[0].description);
+                
+                //show temperature, pressure and humidity
+                console.log("\n   Temperature : "+ parsed.main.temp+"F");
+                console.log("\n   Pressure : "+ parsed.main.pressure);
+                console.log("\n   Humidity : "+ parsed.main.humidity);
+                console.log('\n**************************************');
 
             } catch (err) {
                 console.error('Unable to parse response as JSON', err);
