@@ -4,20 +4,21 @@
 const program = require('commander'),
     pkg = require('../package.json'), http = require('http');;
 
+let cb = (err) => {
+    return err.toString();
+}
+
 /**
  * API function def definition
  *
  */
-let fetch = (username,password)  => {
-    let params = [];
-    http.get({
-        //TODO add api token
-    }, function(res) {
+let fetch = (category)  => {
+    http.get( 'http://www.ffefefe.com/?rererere', function(res) {
         // explicitly treat incoming data as utf8 (avoids issues with multi-byte chars)
         res.setEncoding('utf8');
 
         // incrementally capture the incoming response body
-        var body = '';
+        let body = '';
         res.on('data', function(d) {
             body += d;
         });
@@ -47,10 +48,11 @@ let fetch = (username,password)  => {
 
 program
     .version(pkg.version)
-    .command('fetch [directory]')
+    .command('fetch [category]')
+    .description(pkg.description)
     .option('-c, --country [optional]', 'Enter country')
     .option('-h, --help','Get usage help')
-    .action(list);
+    .action(fetch);
 
 program.parse(process.argv);
 
