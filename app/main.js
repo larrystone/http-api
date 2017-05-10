@@ -27,14 +27,11 @@ let fetch = (category)  => {
         res.on('end', function() {
             try {
                 let parsed = JSON.parse(body);
+                //TODO 
+
             } catch (err) {
                 console.error('Unable to parse response as JSON', err);
                 return cb(err);
-            }
-
-            // pass the relevant data back to the callback
-            cb(null, {
-                //TODO get back data
             });
         });
     }).on('error', function(err) {
