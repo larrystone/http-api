@@ -12,8 +12,8 @@ let cb = (err) => {
  * API function def definition
  *
  */
-let fetch = (city, country)  => {
-    http.get( 'http://api.openweathermap.org/data/2.5/weather?q={Lagos}&APPID=3e4ab7450471cb0b5c7373bcc56d3953', 
+let fetch = (city)  => {
+    http.get( 'http://api.openweathermap.org/data/2.5/weather?q={'+city+'}&APPID=3e4ab7450471cb0b5c7373bcc56d3953', 
         function(res) {
         // explicitly treat incoming data as utf8 (avoids issues with multi-byte chars)
         res.setEncoding('utf8');
@@ -29,7 +29,7 @@ let fetch = (city, country)  => {
             try {
                 let parsed = JSON.parse(body);
                 //TODO interpret and show data
-                console.log(parsed);
+                console.log(parsed.name + " : "+ parsed.weather[0].description);
 
             } catch (err) {
                 console.error('Unable to parse response as JSON', err);
@@ -47,10 +47,9 @@ let fetch = (city, country)  => {
 
 program
     .version(pkg.version)
-    .command('fetch [city] [Country]')
+    .command('fetch <city>')
     .description(pkg.description)
-    .option('-c, --city [optional]', 'Enter city')
-    .option('-C, --Country [optional]', 'Enter country')
+    .option('-c, --city <optional>', 'Enter city')
     .option('-h, --help','Get usage help')
     .action(fetch);
 
